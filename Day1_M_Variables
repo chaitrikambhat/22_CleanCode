@@ -1,0 +1,165 @@
+review1.cs
+public bool IsShopOpen(string day)
+{
+    if (!string.IsNullOrEmpty(day))
+    {
+        day = day.ToLower();
+        if (day == "friday")
+        {
+            return true;
+        }
+        else if (day == "saturday")
+        {
+            return true;
+        }
+        else if (day == "sunday")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+
+}
+
+sol:
+public class ShopHours
+{
+    private static readonly List<string> OpenDays = new List<string> { "friday", "saturday", "sunday" };
+
+    public bool IsShopOpen(string day)
+    {
+        return !string.IsNullOrEmpty(day) && OpenDays.Contains(day.ToLower());
+    }
+}
+
+
+review3.cs
+public long Fibonacci(int n)
+{
+    if (n < 50)
+    {
+        if (n != 0)
+        {
+            if (n != 1)
+            {
+                return Fibonacci(n - 1) + Fibonacci(n - 2);
+            }
+            else
+            {
+                return 1;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    else
+    {
+        throw new System.Exception("Not supported");
+    }
+}
+
+sol:
+public long Fibonacci(int n)
+{
+    if (n < 0 || n >= 50)
+    {
+        throw new ArgumentOutOfRangeException(nameof(n), "Value should be between 0 and 49.");
+    }
+
+    if (n <= 1)
+    {
+        return n;
+    }
+    else
+    {
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
+    }
+}
+
+review4.cs
+var l = new[] { "Austin", "New York", "San Francisco" };
+
+for (var i = 0; i < l.Count(); i++)
+{
+    var li = l[i];
+    DoStuff();
+    DoSomeOtherStuff();
+
+    // ...
+    // ...
+    // ...
+    // Wait, what is `li` for again?
+    Dispatch(li);
+}
+
+sol:
+var location = new[] { "Austin", "New York", "San Francisco" };
+
+for (var i = 0; i < location.Count(); i++)
+{
+    var list = location[i];
+    DoStuff();
+    DoSomeOtherStuff();
+    Dispatch(list);
+}
+
+review5.cs
+if (userRole == 8) // Check if Admin 
+{
+    
+}
+
+sol:
+const string ADMIN_ROLE ="Admin"
+if(userRole == ADMIN_ROLE)
+{
+    
+}
+
+review6.cs
+public class Car
+{
+    public string CarMake { get; set; }
+    public string CarModel { get; set; }
+    public string CarColor { get; set; }
+
+    //...
+}
+
+sol:
+public class Car
+{
+    public string Make { get; set; }
+    public string Model { get; set; }
+    public string Color { get; set; }
+
+    //...
+}
+
+review7.cs
+var ymdstr = DateTime.UtcNow.ToString("MMMM dd, yyyy");
+
+sol:
+var Date = DateTime.UtcNow.ToString("mm, dd, yyyy");
+
+review9.cs
+public void CreateMicrobrewery(string name = null)
+{
+    var breweryName = !string.IsNullOrEmpty(name) ? name : "Hipster Brew Co.";
+    // ...
+}
+
+sol:
+public void CreateMicrobrewery(string name = "Hipster Brew Co.")
+{
+    
+}
